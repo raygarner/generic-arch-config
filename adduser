@@ -1,0 +1,10 @@
+#!/bin/sh
+#usage: sudo ./adduser <username>
+
+pacman -S vi sudo
+
+useradd "$1" -m
+passwd "$1"
+usermod -aG wheel "$1"
+visudo
+

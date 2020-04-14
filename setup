@@ -1,0 +1,273 @@
+#!/bin/bash
+
+#requirements:
+#bash
+#user created with sudo privs and script be in their home
+#internet connection
+#GRAPHICS DRIVERS
+
+#VARIABLES
+USER="john"
+REALNAME="John Smith"
+EMAIL="jsmith@email.com"
+
+#update and upgrade
+read -rp "running pacman -Syu"
+sudo pacman -Syu
+
+#cd to home dir
+read -rp "Moving to /home/$USER"
+cd "/home/$USER" || exit
+
+#create dirs
+read -rp "Creating dirs in new user home..."
+mkdir media media/audio media/audio/music media/pics media/pics/papes media/pics/people media/pics/screenshots media/vids media/vids/shows media/vids/films media/vids/screencasts Documents builds Downloads .config .config/zsh src Downloads/music Downloads/isos/ Downloads/vids .surf
+
+#create zsh history
+touch "/home/$USER/.config/zsh/history"
+
+#install packages
+read -rp "Installing packages..."
+cd "/home/$USER/post-install-config" || exit
+sudo pacman -S zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift youtube-dl mpv scrot xbindkeys htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip thunderbird perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar pro-audio texlive-most texlive-lang discord octave pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr eclipse numlockx calcurse zsh virtualbox neomutt git-lfs
+#sudo pacman -S --needed "$(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))"
+
+read -rp "packages installed..."
+
+#set keyboard layout
+read -rp "Setting keyboard layout to gb..."
+sudo localectl --no-convert set-x11-keymap gb
+
+#set up git
+read -rp "Adding git account details..."
+git config --global user.email "$EMAIL"
+git config --global user.name "$REALNAME"
+read -rp "Generating ssh key..."
+ssh-keygen -t rsa -b 4096 -C "$EMAIL"
+eval "$(ssh-agent -s)"
+read -rp "Adding ssh key to agent..."
+cd "/home/$USER/.ssh" || exit
+ssh-add id_rsa
+read -rp "Generating copy key script..."
+echo "#!/bin/sh" > copy.sh
+echo "xclip -sel clip < id_rsa.pub" >> copy.sh
+chmod +x copy.sh
+cd "/home/$USER" || exit
+
+#set up pass
+gpg --full-generate-key
+KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
+pass init "$KEY"
+
+#download wallpaper
+read -rp "Downloading wallpaper..."
+git clone https://github.com/raygarner/wallpaper.git "/home/$USER/media/pics/papes/"
+
+#download dotfiles
+read -rp "Downloading dotfiles..."
+git clone https://github.com/raygarner/dotfiles.git dotfiles
+
+#link dotfiles to home
+read -rp "Linking dotfiles..."
+cd "/home/$USER/dotfiles" || exit
+ln .vimrc "/home/$USER/.vimrc"
+ln .xbindkeysrc "/home/$USER/.xbindkeysrc"
+ln .xinitrc "/home/$USER/.xinitrc"
+ln .project "/home/$USER/.project"
+ln .zshrc "/home/$USER/.zshrc"
+ln .aliases "/home/$USER/.aliases"
+ln .zprofile "/home/$USER/.zprofile"
+cd "/home/$USER" || exit
+
+#set shell
+chsh -s /bin/zsh
+
+#download scripts
+read -rp "Downloading scripts..."
+git clone https://github.com/raygarner/scripts.git
+chmod +x scripts/*
+
+#download and build dwm
+read -rp "Downloading dwm..."
+cd builds || exit
+git clone https://github.com/raygarner/rays_dwm.git
+read -rp "Building dwm..."
+cd rays_dwm || exit
+make
+sudo make install
+cd "/home/$USER/builds" || exit
+
+#download and build st
+read -rp "Downloading st..."
+git clone https://github.com/raygarner/rays_st_3.git
+read -rp "Building st..."
+cd rays_st_3 || exit
+make
+sudo make install
+cd "/home/$USER/builds" || exit
+
+#download and build surf
+read -rp "Downloading surf..."
+git clone https://github.com/raygarner/rays_surf.git
+read -rp "Building surf..."
+cd rays_surf || exit
+make
+sudo make install
+#rm /home/ray/.surf/script.js
+ln script.js "/home/$USER/.surf/script.js"
+cd "/home/$USER/builds" || exit
+
+#download and build slock
+read -rp "Downloading slock..."
+git clone https://github.com/raygarner/rays_slock.git
+read -rp "Building slock..."
+cd rays_slock || exit
+make
+sudo make install
+cd "/home/$USER/builds" || exit
+
+#download and build farbfeld
+read -rp "Downloading farbeld..."
+git clone https://git.suckless.org/farbfeld
+read -rp "Building farbfeld..."
+cd farbfeld || exit
+make
+sudo make install
+cd "/home/$USER/builds" || exit
+
+#download and build sent
+read -rp "Downloading sent..."
+git clone https://github.com/raygarner/rays_sent.git
+read -rp "Building sent..."
+cd rays_sent || exit
+make
+sudo make install
+cd "/home/$USER/builds" || exit
+
+#download and build yay
+read -rp "Downloading yay..."
+git clone https://aur.archlinux.org/yay.git
+read -rp "Building yay..."
+cd yay || exit
+makepkg -si
+cd "/home/$USER/builds" || exit
+
+#install urlview
+read -rp "installing urlview..."
+yay -S urlview
+
+#install mutt wizard
+read -rp "installing mutwizard..."
+yay -S mutt-wizard-git
+
+#install scid
+read -rp "Installing scid..."
+yay -S scid
+
+#install stockfish
+read -rp "Installing stockfish..."
+yay -S stockfish
+
+#install brave
+read -rp "Installing brave..."
+yay -S brave-bin
+
+#install mons
+read -rp "Installing mons..."
+yay -S mons
+
+#install xwallpaper
+read -rp "Installing xwallpaper..."
+yay -S xwallpaper
+
+#installing matlab ncurses dependancy
+read -rp "Installing ncurses5-compat-libs (for matlab)..."
+yay -S ncurses5-compat-libs
+
+#install matlab
+read -rp "Installing matlab..."
+yay -S matlab
+
+#download and build citrix
+read -rp "Downloading icaclient..."
+git clone https://aur.archlinux.org/icaclient.git
+read -rp "Building icaclient..."
+cd icaclient || exit
+makepkg -si
+mkdir -p "/home/$USER/.ICAClient/cache"
+cp /opt/Citrix/ICAClient/config/{All_Regions,Trust_Region,Unkown_Region,canonicalization,regions}.ini "/home/$USER/.ICAClient"
+cd "/home/$USER/builds" || exit
+read -rp "Adding SSL support to icaclient..."
+sudo ln -s /usr/share/ca-certificates/mozilla/* /opt/Citrix/ICAClient/keystore/cacerts/
+sudo c_rehash /opt/Citrix/ICAClient/keystore/cacerts/
+cd "/home/$USER/builds" || exit
+
+#download and build vmware-horizon
+read -rp "Downloading vmware-keymaps..."
+git clone https://aur.archlinux.org/vmware-keymaps.git
+read -rp "Building vmware-keymaps..."
+cd vmware-keymaps || exit
+makepkg -si
+cd "/home/$USER/builds" || exit
+read -rp "Downloading vmware-horizon-client..."
+git clone https://aur.archlinux.org/vmware-horizon-client.git
+read -rp "Building vmware-horizon-client..."
+cd vmware-horizon-client || exit
+makepkg -si
+cd "/home/$USER" || exit
+
+
+#start and enable dhcpcd
+read -rp "Starting dhcpcd module..."
+sudo systemctl enable dhcpcd.service
+read -rp "Enabling dhcpcd module..."
+sudo systemctl start dhcpcd.service
+
+#start and enable bluetooth service
+read -rp "Enabling bluetooth.service..."
+sudo systemctl enable bluetooth.service
+read -rp "Starting bluetooth.service..."
+sudo systemctl start bluetooth.service
+
+#start and enable cups
+read -rp "Enabling cups service..."
+sudo systemctl enable org.cups.cupsd.service
+read -rp "Starting cups service..."
+sudo systemctl start org.cups.cupsd.service
+
+
+#bluetooth conf stuff
+read -rp "Configuring pulseaudio for bluetooth compatability..."
+#sudo echo "" >> /etc/pulse/system.pa
+#{ sudo echo ""; } >> /etc/pulse/system.pa
+#echo "load-module module-bluetooth-policy" >> /etc/pulse/system.pa
+#echo "load-module module-bluetooth-discover" >> /etc/pulse/system.pa
+{
+    sudo echo "";
+    sudo echo "load-module module-bluetooth-policy"
+    sudo echo "load-module module-bluetooth-discover"
+} >> /etc/pulse/system.pa
+
+#set jdk as env for java
+#sudo archlinux-java set java-11-openjdk
+
+#add real name for ray
+sudo chfn -f "$REALNAME" $USER
+
+#set default image viewer
+read -rp "Setting default image viewer..."
+xdg-mime default sxiv.desktop image/jpg
+xdg-mime default sxiv.desktop image/jpeg
+xdg-mime default sxiv.desktop image/png
+
+#relink /bin/sh
+read -rp "Relinking /bin/sh to dash..."
+sudo ln -sfT dash /usr/bin/sh
+
+#block ads
+cd "/home/$USER" || exit
+curl https://raw.githubusercontent.com/LukeSmithxyz/etc/master/ips > ips
+sudo cat ips >> /etc/hosts
+
+echo "End of script."
+echo "You should now reboot."
