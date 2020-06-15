@@ -39,20 +39,20 @@ read -rp "Setting keyboard layout to gb..."
 sudo localectl --no-convert set-x11-keymap gb
 
 #set up git
-read -rp "Adding git account details..."
-git config --global user.email "$EMAIL"
-git config --global user.name "$REALNAME"
-read -rp "Generating ssh key..."
-ssh-keygen -t rsa -b 4096 -C "$EMAIL"
-eval "$(ssh-agent -s)"
-read -rp "Adding ssh key to agent..."
-cd "/home/$USER/.ssh" || exit
-ssh-add id_rsa
-read -rp "Generating copy key script..."
-echo "#!/bin/sh" > copy.sh
-echo "xclip -sel clip < id_rsa.pub" >> copy.sh
-chmod +x copy.sh
-cd "/home/$USER" || exit
+#read -rp "Adding git account details..."
+#git config --global user.email "$EMAIL"
+#git config --global user.name "$REALNAME"
+#read -rp "Generating ssh key..."
+#ssh-keygen -t rsa -b 4096 -C "$EMAIL"
+#eval "$(ssh-agent -s)"
+#read -rp "Adding ssh key to agent..."
+#cd "/home/$USER/.ssh" || exit
+#ssh-add id_rsa
+#read -rp "Generating copy key script..."
+#echo "#!/bin/sh" > copy.sh
+#echo "xclip -sel clip < id_rsa.pub" >> copy.sh
+#chmod +x copy.sh
+#cd "/home/$USER" || exit
 
 #set up pass
 gpg --full-generate-key
@@ -189,32 +189,32 @@ read -rp "Installing matlab..."
 yay -S matlab
 
 #download and build citrix
-read -rp "Downloading icaclient..."
-git clone https://aur.archlinux.org/icaclient.git
-read -rp "Building icaclient..."
-cd icaclient || exit
-makepkg -si
-mkdir -p "/home/$USER/.ICAClient/cache"
-cp /opt/Citrix/ICAClient/config/{All_Regions,Trust_Region,Unkown_Region,canonicalization,regions}.ini "/home/$USER/.ICAClient"
-cd "/home/$USER/builds" || exit
-read -rp "Adding SSL support to icaclient..."
-sudo ln -s /usr/share/ca-certificates/mozilla/* /opt/Citrix/ICAClient/keystore/cacerts/
-sudo c_rehash /opt/Citrix/ICAClient/keystore/cacerts/
-cd "/home/$USER/builds" || exit
+#read -rp "Downloading icaclient..."
+#git clone https://aur.archlinux.org/icaclient.git
+#read -rp "Building icaclient..."
+#cd icaclient || exit
+#makepkg -si
+#mkdir -p "/home/$USER/.ICAClient/cache"
+#cp /opt/Citrix/ICAClient/config/{All_Regions,Trust_Region,Unkown_Region,canonicalization,regions}.ini "/home/$USER/.ICAClient"
+#cd "/home/$USER/builds" || exit
+#read -rp "Adding SSL support to icaclient..."
+#sudo ln -s /usr/share/ca-certificates/mozilla/* /opt/Citrix/ICAClient/keystore/cacerts/
+#sudo c_rehash /opt/Citrix/ICAClient/keystore/cacerts/
+#cd "/home/$USER/builds" || exit
 
 #download and build vmware-horizon
-read -rp "Downloading vmware-keymaps..."
-git clone https://aur.archlinux.org/vmware-keymaps.git
-read -rp "Building vmware-keymaps..."
-cd vmware-keymaps || exit
-makepkg -si
-cd "/home/$USER/builds" || exit
-read -rp "Downloading vmware-horizon-client..."
-git clone https://aur.archlinux.org/vmware-horizon-client.git
-read -rp "Building vmware-horizon-client..."
-cd vmware-horizon-client || exit
-makepkg -si
-cd "/home/$USER" || exit
+#read -rp "Downloading vmware-keymaps..."
+#git clone https://aur.archlinux.org/vmware-keymaps.git
+#read -rp "Building vmware-keymaps..."
+#cd vmware-keymaps || exit
+#makepkg -si
+#cd "/home/$USER/builds" || exit
+#read -rp "Downloading vmware-horizon-client..."
+#git clone https://aur.archlinux.org/vmware-horizon-client.git
+#read -rp "Building vmware-horizon-client..."
+#cd vmware-horizon-client || exit
+#makepkg -si
+#cd "/home/$USER" || exit
 
 
 #start and enable dhcpcd
@@ -255,10 +255,10 @@ read -rp "Configuring pulseaudio for bluetooth compatability..."
 sudo chfn -f "$REALNAME" $USER
 
 #set default image viewer
-read -rp "Setting default image viewer..."
-xdg-mime default sxiv.desktop image/jpg
-xdg-mime default sxiv.desktop image/jpeg
-xdg-mime default sxiv.desktop image/png
+#read -rp "Setting default image viewer..."
+#xdg-mime default sxiv.desktop image/jpg
+#xdg-mime default sxiv.desktop image/jpeg
+#xdg-mime default sxiv.desktop image/png
 
 #relink /bin/sh
 read -rp "Relinking /bin/sh to dash..."
@@ -266,8 +266,8 @@ sudo ln -sfT dash /usr/bin/sh
 
 #block ads
 cd "/home/$USER" || exit
-curl https://raw.githubusercontent.com/LukeSmithxyz/etc/master/ips > ips
-sudo cat ips >> /etc/hosts
+#curl https://raw.githubusercontent.com/LukeSmithxyz/etc/master/ips > ips
+#sudo cat ips >> /etc/hosts
 
 echo "End of script."
 echo "You should now reboot."
