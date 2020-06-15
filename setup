@@ -21,7 +21,7 @@ cd "/home/$USER" || exit
 
 #create dirs
 read -rp "Creating dirs in new user home..."
-mkdir media media/audio media/audio/music media/pics media/pics/papes media/pics/people media/pics/screenshots media/vids media/vids/shows media/vids/films media/vids/screencasts Documents builds Downloads .config .config/zsh src Downloads/music Downloads/isos/ Downloads/vids .surf
+mkdir media media/audio media/audio/music media/pics media/pics/papes media/pics/people media/pics/screenshots media/vids media/vids/shows media/vids/films media/vids/screencasts Documents builds Downloads .config .config/zsh src Downloads/music Downloads/isos/ Downloads/vids
 
 #create zsh history
 touch "/home/$USER/.config/zsh/history"
@@ -29,7 +29,7 @@ touch "/home/$USER/.config/zsh/history"
 #install packages
 read -rp "Installing packages..."
 cd "/home/$USER/post-install-config" || exit
-sudo pacman -S zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift youtube-dl mpv scrot xbindkeys htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip thunderbird perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar pro-audio texlive-most texlive-lang discord octave pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr eclipse numlockx calcurse zsh virtualbox neomutt git-lfs
+sudo pacman -S zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift youtube-dl mpv scrot xbindkeys htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip thunderbird perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar texlive-most texlive-lang discord octave pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx calcurse zsh git-lfs biber imagemagick
 #sudo pacman -S --needed "$(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))"
 
 read -rp "packages installed..."
@@ -107,15 +107,15 @@ sudo make install
 cd "/home/$USER/builds" || exit
 
 #download and build surf
-read -rp "Downloading surf..."
-git clone https://github.com/raygarner/rays_surf.git
-read -rp "Building surf..."
-cd rays_surf || exit
-make
-sudo make install
+#read -rp "Downloading surf..."
+#git clone https://github.com/raygarner/rays_surf.git
+#read -rp "Building surf..."
+#cd rays_surf || exit
+#make
+#sudo make install
 #rm /home/ray/.surf/script.js
-ln script.js "/home/$USER/.surf/script.js"
-cd "/home/$USER/builds" || exit
+#ln script.js "/home/$USER/.surf/script.js"
+#cd "/home/$USER/builds" || exit
 
 #download and build slock
 read -rp "Downloading slock..."
@@ -153,12 +153,12 @@ makepkg -si
 cd "/home/$USER/builds" || exit
 
 #install urlview
-read -rp "installing urlview..."
-yay -S urlview
+#read -rp "installing urlview..."
+#yay -S urlview
 
 #install mutt wizard
-read -rp "installing mutwizard..."
-yay -S mutt-wizard-git
+#read -rp "installing mutwizard..."
+#yay -S mutt-wizard-git
 
 #install scid
 read -rp "Installing scid..."
@@ -185,8 +185,8 @@ read -rp "Installing ncurses5-compat-libs (for matlab)..."
 yay -S ncurses5-compat-libs
 
 #install matlab
-read -rp "Installing matlab..."
-yay -S matlab
+#read -rp "Installing matlab..."
+#yay -S matlab
 
 #download and build citrix
 #read -rp "Downloading icaclient..."
