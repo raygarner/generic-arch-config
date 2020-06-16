@@ -52,7 +52,7 @@ sudo localectl --no-convert set-x11-keymap gb
 #echo "#!/bin/sh" > copy.sh
 #echo "xclip -sel clip < id_rsa.pub" >> copy.sh
 #chmod +x copy.sh
-#cd "/home/$USER" || exit
+cd "/home/$USER" || exit
 
 #set up pass
 #gpg --full-generate-key
