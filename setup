@@ -28,8 +28,8 @@ touch "/home/$USER/.config/zsh/history"
 
 #install packages
 read -rp "Installing packages..."
-cd "/home/$USER/post-install-config" || exit
-sudo pacman -S zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift youtube-dl mpv scrot xbindkeys htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip thunderbird perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx calcurse zsh git-lfs biber imagemagick
+cd "/home/$USER/generic-arch-config" || exit
+sudo pacman -S zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift youtube-dl mpv scrot htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip thunderbird perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx calcurse zsh git-lfs biber imagemagick
 #sudo pacman -S --needed "$(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))"
 
 read -rp "packages installed..."
@@ -55,9 +55,9 @@ sudo localectl --no-convert set-x11-keymap gb
 #cd "/home/$USER" || exit
 
 #set up pass
-gpg --full-generate-key
-KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
-pass init "$KEY"
+#gpg --full-generate-key
+#KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
+#pass init "$KEY"
 
 #download wallpaper
 read -rp "Downloading wallpaper..."
@@ -159,6 +159,10 @@ cd "/home/$USER/builds" || exit
 #install mutt wizard
 #read -rp "installing mutwizard..."
 #yay -S mutt-wizard-git
+
+#install xbindkeys
+read -rp "Installing xbindkeys..."
+yay -S xbindkeys
 
 #install scid
 read -rp "Installing scid..."
