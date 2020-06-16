@@ -79,6 +79,11 @@ ln .aliases "/home/$USER/.aliases"
 ln .zprofile "/home/$USER/.zprofile"
 cd "/home/$USER" || exit
 
+#download uni.bib
+cd /home/ray/Documents
+git clone https://github.com/raygarner/latex.git
+cd /home/ray
+
 #set shell
 chsh -s /bin/zsh
 
