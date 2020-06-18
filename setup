@@ -29,7 +29,7 @@ touch "/home/$USER/.config/zsh/history"
 #install packages
 read -rp "Installing packages..."
 cd "/home/$USER/generic-arch-config" || exit
-sudo pacman -S zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift youtube-dl mpv scrot htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip thunderbird perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx calcurse zsh git-lfs biber imagemagick
+sudo pacman -S --needed zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift youtube-dl mpv scrot htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip thunderbird perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx calcurse zsh git-lfs biber imagemagick
 #sudo pacman -S --needed "$(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))"
 
 read -rp "packages installed..."
@@ -80,9 +80,9 @@ ln .zprofile "/home/$USER/.zprofile"
 cd "/home/$USER" || exit
 
 #download uni.bib
-cd /home/ray/Documents
+cd /home/$USER/Documents
 git clone https://github.com/raygarner/latex.git
-cd /home/ray
+cd /home/$USER
 
 #set shell
 chsh -s /bin/zsh
