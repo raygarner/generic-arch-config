@@ -70,7 +70,6 @@ cd "/home/$USER/dotfiles" || exit
 ln .vimrc "/home/$USER/.vimrc"
 ln .xbindkeysrc "/home/$USER/.xbindkeysrc"
 ln .xinitrc "/home/$USER/.xinitrc"
-ln .project "/home/$USER/.project"
 ln .zshrc "/home/$USER/.zshrc"
 ln .aliases "/home/$USER/.aliases"
 ln .zprofile "/home/$USER/.zprofile"
