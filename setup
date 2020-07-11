@@ -166,6 +166,10 @@ yay -S mons
 read -rp "Installing xwallpaper..."
 yay -S xwallpaper
 
+#install reaper
+read -rp "installing reaper..."
+yay -S reaper-bin
+
 #installing matlab ncurses dependancy
 #read -rp "Installing ncurses5-compat-libs (for matlab)..."
 #yay -S ncurses5-compat-libs
