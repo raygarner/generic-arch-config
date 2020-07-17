@@ -39,22 +39,7 @@ sudo localectl --no-convert set-x11-keymap gb
 read -rp "Adding git account details..."
 git config --global user.email "$EMAIL"
 git config --global user.name "$REALNAME"
-#read -rp "Generating ssh key..."
-#ssh-keygen -t rsa -b 4096 -C "$EMAIL"
-#eval "$(ssh-agent -s)"
-#read -rp "Adding ssh key to agent..."
-#cd "/home/$USER/.ssh" || exit
-#ssh-add id_rsa
-#read -rp "Generating copy key script..."
-#echo "#!/bin/sh" > copy.sh
-#echo "xclip -sel clip < id_rsa.pub" >> copy.sh
-#chmod +x copy.sh
 cd "/home/$USER" || exit
-
-#set up pass
-#gpg --full-generate-key
-#KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
-#pass init "$KEY"
 
 #download wallpaper
 read -rp "Downloading wallpaper..."
@@ -236,18 +221,11 @@ sudo systemctl start org.cups.cupsd.service
 
 #bluetooth conf stuff
 read -rp "Configuring pulseaudio for bluetooth compatability..."
-#sudo echo "" >> /etc/pulse/system.pa
-#{ sudo echo ""; } >> /etc/pulse/system.pa
-#echo "load-module module-bluetooth-policy" >> /etc/pulse/system.pa
-#echo "load-module module-bluetooth-discover" >> /etc/pulse/system.pa
 {
     sudo echo "";
     sudo echo "load-module module-bluetooth-policy"
     sudo echo "load-module module-bluetooth-discover"
 } >> /etc/pulse/system.pa
-
-#set jdk as env for java
-#sudo archlinux-java set java-11-openjdk
 
 #add real name for ray
 sudo chfn -f "$REALNAME" $USER
