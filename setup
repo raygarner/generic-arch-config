@@ -234,9 +234,5 @@ sudo chfn -f "$REALNAME" $USER
 read -rp "Relinking /bin/sh to dash..."
 sudo ln -sfT dash /usr/bin/sh
 
-#disable screen saver
-read -rp "Disabling screensaver..."
-xset s off
-
 echo "End of script."
 echo "You should now reboot."
