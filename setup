@@ -49,6 +49,10 @@ git clone https://github.com/raygarner/wallpaper.git "/home/$USER/media/pics/pap
 read -rp "Downloading dotfiles..."
 git clone https://github.com/raygarner/dotfiles.git dotfiles
 
+#download newsboat config
+read -rp "Downloading newsboat config..."
+git clone https://github.com/raygarner/newsboat-config.git .newsboat
+
 #link dotfiles to home
 read -rp "Linking dotfiles..."
 cd "/home/$USER/dotfiles" || exit
