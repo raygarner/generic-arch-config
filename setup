@@ -62,6 +62,7 @@ ln .xinitrc "/home/$USER/.xinitrc"
 ln .zshrc "/home/$USER/.zshrc"
 ln .aliases "/home/$USER/.aliases"
 ln .zprofile "/home/$USER/.zprofile"
+ln .urlview "home/$USER/.urlview"
 cd "/home/$USER" || exit
 
 #download uni.bib
