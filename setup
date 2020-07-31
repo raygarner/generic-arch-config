@@ -53,6 +53,10 @@ git clone https://github.com/raygarner/dotfiles.git dotfiles
 read -rp "Downloading newsboat config..."
 git clone https://github.com/raygarner/newsboat-config.git .newsboat
 
+#download mutt config
+read -rp "Downloading mutt config..."
+git clone https://github.com/raygarner/mutt-config.git .mutt 
+
 #link dotfiles to home
 read -rp "Linking dotfiles..."
 cd "/home/$USER/dotfiles" || exit
