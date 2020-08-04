@@ -43,8 +43,9 @@ cd "/home/$USER" || exit
 
 #set up pass
 gpg --full-generate-key
-KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
-pass init "$KEY"
+#KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
+#pass init "$KEY"
+pass "$EMAIL"
 
 #download wallpaper
 #read -rp "Downloading wallpaper..."
