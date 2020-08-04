@@ -7,9 +7,9 @@
 #GRAPHICS DRIVERS
 
 #VARIABLES
-USER="john"
-REALNAME="John Smith"
-EMAIL="jsmith@email.com"
+USER="ray"
+REALNAME="Ray Garner"
+EMAIL="ray@perfectcast.co.uk"
 
 #update and upgrade
 read -rp "running pacman -Syu"
@@ -41,9 +41,14 @@ git config --global user.email "$EMAIL"
 git config --global user.name "$REALNAME"
 cd "/home/$USER" || exit
 
+#set up pass
+gpg --full-generate-key
+KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
+pass init "$KEY"
+
 #download wallpaper
-read -rp "Downloading wallpaper..."
-git clone https://github.com/raygarner/wallpaper.git "/home/$USER/media/pics/papes/"
+#read -rp "Downloading wallpaper..."
+#git clone https://github.com/raygarner/wallpaper.git "/home/$USER/media/pics/papes/"
 
 #download dotfiles
 read -rp "Downloading dotfiles..."
@@ -249,3 +254,4 @@ sudo ln -sfT dash /usr/bin/sh
 
 echo "End of script."
 echo "You should now reboot."
+echo "You need to configure calcurse and add email passwords for mutt"
