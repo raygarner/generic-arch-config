@@ -8,7 +8,7 @@
 
 #VARIABLES
 USER="ray"
-REALNAME="Ray Garner"
+GITUSER="raygarner"
 EMAIL="ray@perfectcast.co.uk"
 
 #update and upgrade
@@ -38,14 +38,14 @@ sudo localectl --no-convert set-x11-keymap gb
 #set up git
 read -rp "Adding git account details..."
 git config --global user.email "$EMAIL"
-git config --global user.name "$REALNAME"
+git config --global user.name "$GITUSER"
 cd "/home/$USER" || exit
 
 #set up pass
 gpg --full-generate-key
 #KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
 #pass init "$KEY"
-pass "$EMAIL"
+pass init "$EMAIL"
 
 #download wallpaper
 #read -rp "Downloading wallpaper..."
@@ -245,9 +245,6 @@ read -rp "Configuring pulseaudio for bluetooth compatability..."
     sudo echo "load-module module-bluetooth-policy"
     sudo echo "load-module module-bluetooth-discover"
 } >> /etc/pulse/system.pa
-
-#add real name for ray
-sudo chfn -f "$REALNAME" $USER
 
 #relink /bin/sh
 read -rp "Relinking /bin/sh to dash..."
