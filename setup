@@ -252,4 +252,4 @@ sudo ln -sfT dash /usr/bin/sh
 
 echo "End of script."
 echo "You should now reboot."
-echo "You need to configure calcurse and add email passwords for mutt"
+echo "You need to configure calcurse and brave add email passwords to pass for mutt"
