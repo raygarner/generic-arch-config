@@ -44,15 +44,9 @@ cd "/home/$USER" || exit
 
 #set up pass
 gpg --full-generate-key
-#KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
-#pass init "$KEY"
 pass init "$EMAIL"
 pass insert "$EMAIL"
 pass insert "$EMAIL2"
-
-#download wallpaper
-#read -rp "Downloading wallpaper..."
-#git clone https://github.com/raygarner/wallpaper.git "/home/$USER/media/pics/papes/"
 
 #download dotfiles
 read -rp "Downloading dotfiles..."
