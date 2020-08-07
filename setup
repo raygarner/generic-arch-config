@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#BUGS:
+#make command not found
+#pass command not found
+#/bin/zsh not found
+#error building yay: fakeroot binary not found
+#pip command not found
+#bluetooth service not found
+#cups service not found
+
 #requirements:
 #bash
 #user created with sudo privs and script be in their home
@@ -29,8 +38,8 @@ touch "/home/$USER/.config/zsh/history"
 
 #install packages
 read -rp "Installing packages..."
-cd "/home/$USER/generic-arch-config" || exit
-sudo pacman -S --needed zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift mpv scrot htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar pro-audio octave texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx zsh git-lfs biber imagemagick dash glew sdl2 sdl2_image glm freetype2 python-pip speedtest-cli mutt w3m calcurse virtualbox
+cd "/home/$USER/" || exit
+sudo pacman -S --needed zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift mpv scrot htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx zsh git-lfs biber imagemagick dash glew sdl2 sdl2_image glm freetype2 python-pip speedtest-cli mutt w3m calcurse virtualbox fakeroot
 
 #set keyboard layout
 read -rp "Setting keyboard layout to gb..."
@@ -46,6 +55,7 @@ cd "/home/$USER" || exit
 gpg --full-generate-key
 #KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
 #pass init "$KEY"
+#pass command not found
 pass init "$EMAIL"
 pass insert "$EMAIL"
 pass insert "$EMAIL2"
@@ -60,12 +70,10 @@ git clone https://github.com/raygarner/dotfiles.git dotfiles
 
 #download newsboat config
 read -rp "Downloading newsboat config..."
-rm -r .newsboat
 git clone https://github.com/raygarner/newsboat-config.git .newsboat
 
 #download mutt config
 read -rp "Downloading mutt config..."
-rm -r .mutt
 git clone https://github.com/raygarner/mutt-config.git .mutt 
 
 #download calcurse config
@@ -82,7 +90,7 @@ ln .xinitrc "/home/$USER/.xinitrc"
 ln .zshrc "/home/$USER/.zshrc"
 ln .aliases "/home/$USER/.aliases"
 ln .zprofile "/home/$USER/.zprofile"
-ln .urlview "home/$USER/.urlview"
+ln .urlview "/home/$USER/.urlview"
 cd "/home/$USER" || exit
 
 #download uni.bib
@@ -91,7 +99,7 @@ git clone https://github.com/raygarner/latex.git
 cd /home/$USER
 
 #set shell
-chsh -s /bin/zsh
+chsh -s /bin/zsh #/bin/zsh not found 
 
 #download scripts
 read -rp "Downloading scripts..."
