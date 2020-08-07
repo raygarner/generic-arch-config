@@ -1,14 +1,5 @@
 #!/bin/bash
 
-#BUGS:
-#make command not found
-#pass command not found
-#/bin/zsh not found
-#error building yay: fakeroot binary not found
-#pip command not found
-#bluetooth service not found
-#cups service not found
-
 #requirements:
 #bash
 #user created with sudo privs and script be in their home
@@ -55,7 +46,6 @@ cd "/home/$USER" || exit
 gpg --full-generate-key
 #KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
 #pass init "$KEY"
-#pass command not found
 pass init "$EMAIL"
 pass insert "$EMAIL"
 pass insert "$EMAIL2"
@@ -99,7 +89,7 @@ git clone https://github.com/raygarner/latex.git
 cd /home/$USER
 
 #set shell
-chsh -s /bin/zsh #/bin/zsh not found 
+chsh -s /bin/zsh
 
 #download scripts
 read -rp "Downloading scripts..."
@@ -214,8 +204,8 @@ sudo ln -s /usr/share/ca-certificates/mozilla/* /opt/Citrix/ICAClient/keystore/c
 sudo c_rehash /opt/Citrix/ICAClient/keystore/cacerts/
 read -rp "Creating /bin shortcut for icaclient..."
 cd /bin
-sudo echo "#!/bin/sh" >> icaclient
-sudo echo "/opt/Citrix/ICAClient/selfservice" >> icaclient
+echo '#!/bin/sh' | sudo tee -a icaclient
+echo '/opt/Citrix/ICAClient/selfservice' | sudo tee -a icaclient
 sudo chmod +x icaclient
 cd "/home/$USER/builds" || exit
 
@@ -257,12 +247,10 @@ read -rp "Starting cups service..."
 sudo systemctl start org.cups.cupsd.service
 
 #bluetooth conf stuff
-read -rp "Configuring pulseaudio for bluetooth compatability..."
-{
-    sudo echo "";
-    sudo echo "load-module module-bluetooth-policy"
-    sudo echo "load-module module-bluetooth-discover"
-} >> /etc/pulse/system.pa
+read -rp "Configuring pulseaudio for bluetooth compatability..." 
+echo '' | sudo tee -a /etc/pulse/system.pa
+echo 'load-module module-bluetooth-policy' | sudo tee -a /etc/pulse/system.pa
+echo 'load-module module-bluetooth-discover' | sudo tee -a /etc/pulse/system.pa
 
 #relink /bin/sh
 read -rp "Relinking /bin/sh to dash..."
