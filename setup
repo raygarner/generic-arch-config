@@ -10,6 +10,7 @@
 USER="ray"
 GITUSER="raygarner"
 EMAIL="ray@perfectcast.co.uk"
+EMAIL2="psyrg4@nottingham.ac.uk"
 
 #update and upgrade
 read -rp "running pacman -Syu"
@@ -46,6 +47,8 @@ gpg --full-generate-key
 #KEY="$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | sed 's/rsa2048\///g')"
 #pass init "$KEY"
 pass init "$EMAIL"
+pass insert "$EMAIL"
+pass insert "$EMAIL2"
 
 #download wallpaper
 #read -rp "Downloading wallpaper..."
@@ -57,11 +60,18 @@ git clone https://github.com/raygarner/dotfiles.git dotfiles
 
 #download newsboat config
 read -rp "Downloading newsboat config..."
+rm -r .newsboat
 git clone https://github.com/raygarner/newsboat-config.git .newsboat
 
 #download mutt config
 read -rp "Downloading mutt config..."
+rm -r .mutt
 git clone https://github.com/raygarner/mutt-config.git .mutt 
+
+#download calcurse config
+read -rp "Downloading calcurse config..."
+rm -r .calcurse
+git clone https://github.com/raygarner/calcurse-config.git .calcurse
 
 #link dotfiles to home
 read -rp "Linking dotfiles..."
@@ -252,4 +262,3 @@ sudo ln -sfT dash /usr/bin/sh
 
 echo "End of script."
 echo "You should now reboot."
-echo "You need to configure calcurse and brave add email passwords to pass for mutt"
