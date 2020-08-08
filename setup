@@ -176,6 +176,10 @@ yay -S reaper-bin
 read -rp "installing youtube-dl..."
 sudo pip install youtube-dl
 
+#install eclipse
+read -rp "installing eclipse-java..."
+yay -S eclipse-java
+
 #installing matlab ncurses dependancy
 #read -rp "Installing ncurses5-compat-libs (for matlab)..."
 #yay -S ncurses5-compat-libs
