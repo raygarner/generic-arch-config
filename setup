@@ -233,20 +233,14 @@ sudo systemctl enable netctl-auto@$INTERFACE.service
 #start and enable dhcpcd
 read -rp "Starting dhcpcd module..."
 sudo systemctl enable dhcpcd.service
-#read -rp "Enabling dhcpcd module..."
-#sudo systemctl start dhcpcd.service
 
 #start and enable bluetooth service
 read -rp "Enabling bluetooth.service..."
 sudo systemctl enable bluetooth.service
-#read -rp "Starting bluetooth.service..."
-#sudo systemctl start bluetooth.service
 
 #start and enable cups
 read -rp "Enabling cups service..."
 sudo systemctl enable org.cups.cupsd.service
-#read -rp "Starting cups service..."
-#sudo systemctl start org.cups.cupsd.service
 
 #enable transmission
 sudo systemctl enable transmission.service
