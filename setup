@@ -243,6 +243,7 @@ read -rp "Enabling cups service..."
 sudo systemctl enable org.cups.cupsd.service
 
 #enable transmission
+read -rp "Enabling transmission service..."
 sudo systemctl enable transmission.service
 
 #bluetooth conf stuff
