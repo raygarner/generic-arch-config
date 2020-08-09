@@ -180,6 +180,10 @@ sudo pip install youtube-dl
 read -rp "installing eclipse-java..."
 yay -S eclipse-java
 
+#install transmission-remote-cli-git
+reap -rp "installing transmission-remote-cli-git..."
+yay -S transmission-remote-cli-git
+
 #installing matlab ncurses dependancy
 #read -rp "Installing ncurses5-compat-libs (for matlab)..."
 #yay -S ncurses5-compat-libs
@@ -229,20 +233,23 @@ sudo systemctl enable netctl-auto@$INTERFACE.service
 #start and enable dhcpcd
 read -rp "Starting dhcpcd module..."
 sudo systemctl enable dhcpcd.service
-read -rp "Enabling dhcpcd module..."
-sudo systemctl start dhcpcd.service
+#read -rp "Enabling dhcpcd module..."
+#sudo systemctl start dhcpcd.service
 
 #start and enable bluetooth service
 read -rp "Enabling bluetooth.service..."
 sudo systemctl enable bluetooth.service
-read -rp "Starting bluetooth.service..."
-sudo systemctl start bluetooth.service
+#read -rp "Starting bluetooth.service..."
+#sudo systemctl start bluetooth.service
 
 #start and enable cups
 read -rp "Enabling cups service..."
 sudo systemctl enable org.cups.cupsd.service
-read -rp "Starting cups service..."
-sudo systemctl start org.cups.cupsd.service
+#read -rp "Starting cups service..."
+#sudo systemctl start org.cups.cupsd.service
+
+#enable transmission
+sudo systemctl enable transmission.service
 
 #bluetooth conf stuff
 read -rp "Configuring pulseaudio for bluetooth compatability..." 
