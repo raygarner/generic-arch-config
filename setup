@@ -180,9 +180,9 @@ sudo pip install youtube-dl
 read -rp "installing eclipse-java..."
 yay -S eclipse-java
 
-#install transmission-remote-cli-git
-reap -rp "installing transmission-remote-cli-git..."
-yay -S transmission-remote-cli-git
+#install tremc
+reap -rp "installing tremc..."
+yay -S tremc
 
 #installing matlab ncurses dependancy
 #read -rp "Installing ncurses5-compat-libs (for matlab)..."
