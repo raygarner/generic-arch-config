@@ -193,6 +193,7 @@ yay -S tremc
 #yay -S matlab
 
 #download and build citrix
+#server: citrix.nottingham.ac.uk
 read -rp "Downloading icaclient..."
 git clone https://aur.archlinux.org/icaclient.git
 read -rp "Building icaclient..."
@@ -212,6 +213,7 @@ sudo chmod +x icaclient
 cd "/home/$USER/builds" || exit
 
 #download and build vmware-horizon
+#server: nottingham.cloud
 read -rp "Downloading vmware-keymaps..."
 git clone https://aur.archlinux.org/vmware-keymaps.git
 read -rp "Building vmware-keymaps..."
