@@ -144,6 +144,10 @@ cd yay || exit
 makepkg -si
 cd "/home/$USER/builds" || exit
 
+#install urlview
+read -rp "Installing urlview..."
+yay -S urlview
+
 #install xbindkeys
 read -rp "Installing xbindkeys..."
 yay -S xbindkeys
