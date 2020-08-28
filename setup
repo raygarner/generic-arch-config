@@ -65,6 +65,11 @@ read -rp "Downloading calcurse config..."
 rm -r .calcurse
 git clone https://github.com/raygarner/calcurse-config.git .calcurse
 
+#download vis config
+read -rp "Downloading vis config..."
+cd .config
+git clone https://github.com/raygarner/vis-config.git vis
+
 #link dotfiles to home
 read -rp "Linking dotfiles..."
 cd "/home/$USER/dotfiles" || exit
@@ -143,6 +148,10 @@ read -rp "Building yay..."
 cd yay || exit
 makepkg -si
 cd "/home/$USER/builds" || exit
+
+#install visualizer
+read -rp "Install cli-visualizer"
+yay -S cli-visualizer
 
 #install urlview
 read -rp "Installing urlview..."
