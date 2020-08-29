@@ -114,6 +114,15 @@ make
 sudo make install
 cd "/home/$USER/builds" || exit
 
+#download and build surf
+read -rp "Downloading surf..."
+git clone https://github.com/raygarner/rays_surf_2.git
+read -rp "Building surf..."
+cd rays_surf_2 || exit
+make
+sudo make install
+cd "/home/$USER/builds" || exit
+
 #download and build slock
 read -rp "Downloading slock..."
 git clone https://github.com/raygarner/rays_slock.git
