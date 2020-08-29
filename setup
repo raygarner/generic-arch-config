@@ -282,7 +282,9 @@ sudo ln -sfT dash /usr/bin/sh
 
 #downloading hosts
 sudo cp /etc/hosts /etc/hosts.d
-curl "https://raw.githubusercontent.com/LukeSmithxyz/etc/master/ips" | sudo tee -a /etc/hosts
+curl "https://someonewhocares.org/hosts/zero/hosts" | sudo tee -a /etc/hosts
+curl "https://adaway.org/hosts.txt" | sudo tee -a /etc/hosts
+curl "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext" | sudo tee -a /etc/hosts
 
 echo "End of script."
 echo "You should now reboot."
