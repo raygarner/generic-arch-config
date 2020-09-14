@@ -12,8 +12,8 @@ GITUSER="raygarner"
 EMAIL="ray@perfectcast.co.uk"
 EMAIL2="psyrg4@nottingham.ac.uk"
 
-#update and upgrade
-read -rp "running pacman -Syu"
+#update 
+read -rp "updating system..."
 sudo pacman -Syu
 
 #cd to home dir
@@ -22,7 +22,7 @@ cd "/home/$USER" || exit
 
 #create dirs
 read -rp "Creating dirs in new user home..."
-mkdir media media/audio media/audio/music media/pics media/pics/papes media/pics/people media/pics/screenshots media/vids media/vids/shows media/vids/films media/vids/screencasts Documents builds Downloads .config .config/zsh src Downloads/music Downloads/isos/ Downloads/vids
+mkdir media media/audio media/audio/music media/pics media/pics/papes media/pics/screenshots media/vids media/vids/shows media/vids/films media/vids/screencasts Documents builds Downloads .config .config/zsh src Downloads/music Downloads/isos/ Downloads/vids
 
 #create zsh history
 touch "/home/$USER/.config/zsh/history"
