@@ -30,7 +30,7 @@ touch "/home/$USER/.config/zsh/history"
 #install packages
 read -rp "Installing packages..."
 cd "/home/$USER/" || exit
-sudo pacman -S --needed zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift mpv scrot htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx zsh git-lfs biber imagemagick dash glew sdl2 sdl2_image glm freetype2 python-pip speedtest-cli mutt lynx calcurse virtualbox fakeroot octave newsboat webkit2gtk gcr gst-plugins-good gst-libav pro-audio
+sudo pacman -S --needed zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift mpv scrot htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx zsh git-lfs biber imagemagick dash glew sdl2 sdl2_image glm freetype2 python-pip speedtest-cli mutt lynx calcurse virtualbox fakeroot octave newsboat webkit2gtk gcr gst-plugins-good gst-libav pro-audio mediainfo
 
 #set keyboard layout
 read -rp "Setting keyboard layout to gb..."
