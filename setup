@@ -222,6 +222,10 @@ yay -S trello
 read -rp "installing slack..."
 yay -S slack-desktop
 
+#install android-studio
+read -rp "installing android studio..."
+yay -S android-studio
+
 #installing matlab ncurses dependancy
 #read -rp "Installing ncurses5-compat-libs (for matlab)..."
 #yay -S ncurses5-compat-libs
