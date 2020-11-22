@@ -30,7 +30,9 @@ touch "/home/$USER/.config/zsh/history"
 #install packages
 read -rp "Installing packages..."
 cd "/home/$USER/" || exit
-sudo pacman -S --needed zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift mpv scrot htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip perl-rename pulsemixer gdb ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore gimp unrar texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx zsh git-lfs biber imagemagick dash glew sdl2 sdl2_image glm python-pip speedtest-cli mutt lynx calcurse virtualbox fakeroot octave newsboat webkit2gtk gcr gst-plugins-good gst-libav pro-audio mediainfo p7zip dolphin-emu pdftk
+sudo pacman -S --needed zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift mpv scrot htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip perl-rename pulsemixer gdb gimp unrar texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx zsh git-lfs biber imagemagick dash glew sdl2 sdl2_image glm python-pip speedtest-cli mutt lynx calcurse fakeroot newsboat webkit2gtk gcr gst-plugins-good gst-libav mediainfo p7zip dolphin-emu pdftk
+
+#ghc ghc-static cabal-install stack haskell-haddock-library alex happy musescore virtualbox octave dolphin-emu pro-audio wine
 
 #set keyboard layout
 read -rp "Setting keyboard layout to gb..."
@@ -163,8 +165,8 @@ makepkg -si
 cd "/home/$USER/builds" || exit
 
 #install visualizer
-read -rp "Install cli-visualizer"
-yay -S cli-visualizer
+#read -rp "Install cli-visualizer"
+#yay -S cli-visualizer
 
 #install urlview
 read -rp "Installing urlview..."
@@ -175,12 +177,12 @@ read -rp "Installing xbindkeys..."
 yay -S xbindkeys
 
 #install scid
-read -rp "Installing scid..."
-yay -S scid
+#read -rp "Installing scid..."
+#yay -S scid
 
 #install stockfish
-read -rp "Installing stockfish..."
-yay -S stockfish
+#read -rp "Installing stockfish..."
+#yay -S stockfish
 
 #install brave
 read -rp "Installing brave..."
@@ -203,28 +205,28 @@ read -rp "installing youtube-dl..."
 sudo pip install youtube-dl
 
 #install eclipse
-read -rp "installing eclipse-java..."
-yay -S eclipse-java
+#read -rp "installing eclipse-java..."
+#yay -S eclipse-java
 
 #install tremc
 read -rp "installing tremc..."
 yay -S tremc
 
 #install teams
-read -rp "installing teams..."
-yay -S teams
+#read -rp "installing teams..."
+#yay -S teams
 
 #install trello
-read -rp "installing trello..."
-yay -S trello
+#read -rp "installing trello..."
+#yay -S trello
 
 #install slack
-read -rp "installing slack..."
-yay -S slack-desktop
+#read -rp "installing slack..."
+#yay -S slack-desktop
 
 #install android-studio
-read -rp "installing android studio..."
-yay -S android-studio
+#read -rp "installing android studio..."
+#yay -S android-studio
 
 #installing matlab ncurses dependancy
 #read -rp "Installing ncurses5-compat-libs (for matlab)..."
