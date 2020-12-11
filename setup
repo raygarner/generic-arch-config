@@ -30,9 +30,9 @@ touch "/home/$USER/.config/zsh/history"
 #install packages
 read -rp "Installing packages..."
 cd "/home/$USER/" || exit
-sudo pacman -S --needed zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift mpv scrot htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip perl-rename pulsemixer gdb gimp unrar texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx zsh git-lfs biber imagemagick dash glew sdl2 sdl2_image glm python-pip speedtest-cli mutt lynx calcurse fakeroot newsboat webkit2gtk gcr gst-plugins-good gst-libav mediainfo p7zip dolphin-emu pdftk gnuplot musescore virtualbox
+sudo pacman -S --needed zathura zathura-pdf-mupdf make gvim gnu-free-fonts xorg xorg-xinit redshift mpv scrot htop sudo vi pulseaudio compton acpi git xorg-xsetroot xorg-server dmenu libx11 freetype2 pkg-config transmission-cli base-devel neofetch xclip openssh unzip perl-rename pulsemixer gdb gimp unrar texlive-most texlive-lang pandoc dosfstools nano alsa-utils bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa pass zip cups gutenprint sxiv xorg-xrandr numlockx zsh git-lfs biber imagemagick dash glew sdl2 sdl2_image glm python-pip speedtest-cli mutt lynx calcurse fakeroot newsboat webkit2gtk gcr gst-plugins-good gst-libav mediainfo p7zip dolphin-emu pdftk gnuplot virtualbox
 
-#ghc ghc-static cabal-install stack haskell-haddock-library alex happy virtualbox octave dolphin-emu pro-audio wine
+#ghc ghc-static cabal-install stack haskell-haddock-library alex happy virtualbox octave dolphin-emu pro-audio wine musescore
 
 #set keyboard layout
 read -rp "Setting keyboard layout to gb..."
