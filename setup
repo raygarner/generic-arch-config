@@ -268,13 +268,14 @@ yay -S tremc
 #cd "/home/$USER" || exit
 
 #enable the wifi device with netctl
-INTERFACE=$(ip link | grep ^3 | awk '{print $2}' | cut -b '1-6')
-sudo systemctl enable netctl-ifplugd@$INTERFACE.service
-sudo systemctl enable netctl-auto@$INTERFACE.service
+#INTERFACE=$(ip link | grep ^3 | awk '{print $2}' | cut -b '1-6')
+#sudo systemctl enable netctl-ifplugd@$INTERFACE.service
+#sudo systemctl enable netctl-auto@$INTERFACE.service
 
 #start and enable dhcpcd
 read -rp "Starting dhcpcd module..."
 sudo systemctl enable dhcpcd.service
+#sudo system enable dhcpcd@INTERFACE.service
 
 #start and enable bluetooth service
 read -rp "Enabling bluetooth.service..."
