@@ -68,9 +68,9 @@ rm -r .calcurse
 git clone https://github.com/raygarner/calcurse-config.git .calcurse
 
 #download vis config
-read -rp "Downloading vis config..."
-cd .config
-git clone https://github.com/raygarner/vis-config.git vis
+#read -rp "Downloading vis config..."
+#cd .config
+#git clone https://github.com/raygarner/vis-config.git vis
 
 #link dotfiles to home
 read -rp "Linking dotfiles..."
@@ -117,13 +117,13 @@ sudo make install
 cd "/home/$USER/builds" || exit
 
 #download and build surf
-read -rp "Downloading surf..."
-git clone https://github.com/raygarner/rays_surf_2.git
-read -rp "Building surf..."
-cd rays_surf_2 || exit
-make
-sudo make install
-cd "/home/$USER/builds" || exit
+#read -rp "Downloading surf..."
+#git clone https://github.com/raygarner/rays_surf_2.git
+#read -rp "Building surf..."
+#cd rays_surf_2 || exit
+#make
+#sudo make install
+#cd "/home/$USER/builds" || exit
 
 #download and build slock
 read -rp "Downloading slock..."
