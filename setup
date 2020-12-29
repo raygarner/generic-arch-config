@@ -284,6 +284,7 @@ sudo systemctl enable bluetooth.service
 #start and enable cups
 read -rp "Enabling cups service..."
 sudo systemctl enable org.cups.cupsd.service
+sudo systemctl enable cups.service
 
 #enable transmission
 read -rp "Enabling transmission service..."
