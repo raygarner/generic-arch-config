@@ -89,6 +89,11 @@ cd /home/$USER/Documents
 git clone https://github.com/raygarner/latex.git
 cd /home/$USER
 
+#download roff bib and makefile
+cd /home/$USER/Documents
+git clone https://github.com/raygarner/roff.git
+cd /home/$USER
+
 #set shell
 chsh -s /bin/zsh
 
