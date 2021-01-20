@@ -63,20 +63,24 @@ ssh-add "~/.ssh/$SSHKEY2"
 
 #download dotfiles
 read -rp "Downloading dotfiles..."
-git clone https://github.com/raygarner/dotfiles.git dotfiles
+#git clone https://github.com/raygarner/dotfiles.git dotfiles
+git clone git@github.com:raygarner/dotfiles.git
 
 #download newsboat config
 read -rp "Downloading newsboat config..."
-git clone https://github.com/raygarner/newsboat-config.git .newsboat
+#git clone https://github.com/raygarner/newsboat-config.git .newsboat
+git clone git@github.com:raygarner/newsboat-config.git .newsboat
 
 #download mutt config
 read -rp "Downloading mutt config..."
-git clone https://github.com/raygarner/mutt-config.git .mutt 
+#git clone https://github.com/raygarner/mutt-config.git .mutt 
+git clone git@github.com:raygarner/mutt-config.git .mutt
 
 #download calcurse config
 read -rp "Downloading calcurse config..."
 rm -r .calcurse
-git clone https://github.com/raygarner/calcurse-config.git .calcurse
+#git clone https://github.com/raygarner/calcurse-config.git .calcurse
+git clone git@github.com:raygarner/calcurse-config.git .calcurse
 
 #download vis config
 #read -rp "Downloading vis config..."
@@ -97,12 +101,14 @@ cd "/home/$USER" || exit
 
 #download uni.bib
 cd /home/$USER/Documents
-git clone https://github.com/raygarner/latex.git
+#git clone https://github.com/raygarner/latex.git
+git clone git@github.com:raygarner/latex.git
 cd /home/$USER
 
 #download roff bib and makefile
 cd /home/$USER/Documents
-git clone https://github.com/raygarner/roff.git
+#git clone https://github.com/raygarner/roff.git
+git clone git@github.com:raygarner/roff.git
 cd /home/$USER
 
 #set shell
@@ -110,13 +116,15 @@ chsh -s /bin/zsh
 
 #download scripts
 read -rp "Downloading scripts..."
-git clone https://github.com/raygarner/scripts.git
+#git clone https://github.com/raygarner/scripts.git
+git clone git@github.com:raygarner/script.git
 chmod +x scripts/*
 
 #download and build dwm
 read -rp "Downloading dwm..."
 cd builds || exit
-git clone https://github.com/raygarner/rays_dwm.git
+#git clone https://github.com/raygarner/rays_dwm.git
+git clone git@github.com:raygarner/rays_dwm.git
 read -rp "Building dwm..."
 cd rays_dwm || exit
 make
@@ -125,7 +133,8 @@ cd "/home/$USER/builds" || exit
 
 #download and build st
 read -rp "Downloading st..."
-git clone https://github.com/raygarner/rays_st_3.git
+#git clone https://github.com/raygarner/rays_st_3.git
+git clone git@github.com:raygarner/rays_st_3.git
 read -rp "Building st..."
 cd rays_st_3 || exit
 make
@@ -143,7 +152,8 @@ cd "/home/$USER/builds" || exit
 
 #download and build slock
 read -rp "Downloading slock..."
-git clone https://github.com/raygarner/rays_slock.git
+#git clone https://github.com/raygarner/rays_slock.git
+git clone git@github.com:raygarner/rays_slock.git
 read -rp "Building slock..."
 cd rays_slock || exit
 make
@@ -161,7 +171,8 @@ cd "/home/$USER/builds" || exit
 
 #download and build sent
 read -rp "Downloading sent..."
-git clone https://github.com/raygarner/rays_sent.git
+#git clone https://github.com/raygarner/rays_sent.git
+git clone git@github.com:raygarner/rays_sent.git
 read -rp "Building sent..."
 cd rays_sent || exit
 make
@@ -324,3 +335,4 @@ sudo cp /etc/hosts /etc/hosts.d
 
 echo 'End of script.'
 echo 'You should now reboot.'
+echo 'You will need to add this machines ssh key to github in order to push to your repos'
