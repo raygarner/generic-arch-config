@@ -45,10 +45,21 @@ git config --global user.name "$GITUSER"
 cd "/home/$USER" || exit
 
 #set up pass
+read -rp "Setting up pass..."
 gpg --full-generate-key
 pass init "$EMAIL"
 pass insert "$EMAIL"
 pass insert "$EMAIL2"
+
+#set up ssh key
+read -rp "Setting up ssh keys..."
+ssh-keygen -t ed25519 -C "$EMAIL"
+read -rp "Enter the name you gave the file: " SSHKEY1
+ssh-keygen -t ed25519 -C "$EMAIL2"
+read -rp "Enter the name you gave the second file: " SSHKEY2
+eval "$(ssh-agent -s)"
+ssh-add "~/.ssh/$SSHKEY1"
+ssh-add "~/.ssh/$SSHKEY2"
 
 #download dotfiles
 read -rp "Downloading dotfiles..."
